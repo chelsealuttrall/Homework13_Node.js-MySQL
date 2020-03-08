@@ -5,12 +5,14 @@
 const surveyContainer = document.getElementById('survey');
 const submitButton = document.getElementById('submit');
 
-submitButton.addEventListener('click', collectAnswers());
+// submitButton.addEventListener('click', collectAnswers());
+$(submitButton).on("click", collectAnswers());
 
 let allRidersArray = [];
 
 // Convert each user 's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`). *
 function collectAnswers() {
+    console.log("submit button clicked")
     riderName = $("#name").text().trim();
     riderAnswer = $("#points").val();
     questionsArray = [];
@@ -47,11 +49,18 @@ function collectAnswers() {
                 }
                 compareAnswers().val();
                 let differences = [51];
+                let favRider = ["rider"]
                 if (compareAnswers().val() < differences[0]) {
                     differences[0].splice(0, compareAnswers().val())
                     console.log(rider[j])
+                    favRider[0].splice(0, rider[j])
                 };
                 //identify and pluck out the matching rider...and then display it. 
+                .then(function() {
+                    console.log("Your riding mojo score most closely resembles " + rider[j] + "'s.")
+                })
+
+
             }
 
         }
