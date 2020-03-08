@@ -1,5 +1,4 @@
-# Homework13_Node.js-MySQL
-Node.js &amp; MySQL Homework
+# Riding Buddies!
 
 **This application includes a survey that helps serious mountain bikers find their perfect riding buddy.** 
 
