@@ -13,22 +13,24 @@ let allRidersArray = [];
 // Convert each user 's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`). *
 function collectAnswers() {
     console.log("submit button clicked")
+        //pull new survey rider's name and answers
     riderName = $("#name").text().trim();
     riderAnswer = $("#points").val();
     questionsArray = [];
     diffArray = [];
-
+    //put all answers int the questionsArray. 
     for (let i = 0; i < questions.length; i++) {
         riderAnswer.push(questionsArray)
     };
     createNewRider();
 
     function createNewRider() {
+        //populate new Rider's object. 
         let newRider = {
-            riderName: riderName,
-            riderAnswers: questionsArray
-        }
-
+                riderName: riderName,
+                riderAnswers: questionsArray
+            }
+            //compare each rider's answers to the new rider's answers.
         function compareRiders() {
             for (let j = 0; j < allRidersArray.length; j++) {
                 rider = allRidersArray[j];
@@ -36,20 +38,25 @@ function collectAnswers() {
                 console.log(rider.riderAnswers);
                 console.log(newRider.riderAnswers);
                 let compareAnswers = function() {
-                    for (let q = 0; q < rider.riderAnswers[q]; q++) {
-                        let rAnswers = rider.riderAnswers[q];
-                        let newRAnswers = newRider.riderAnswers[q]
-                        return (rAnswers, newRAnswers);
+                        for (let q = 0; q < rider.riderAnswers[q]; q++) {
+                            let rAnswers = rider.riderAnswers[q];
+                            let newRAnswers = newRider.riderAnswers[q]
+                            return (rAnswers, newRAnswers);
+                        }
+                        //subtract the differences between the answers.
+                        let racerQuestionDifference = rAnswers - newRAnswers;
+                        let difArray = [];
+                        //push that absolute number to the diffArray.
+                        Math.abs(racerQuestionDifference).push(diffArray);
+                        //then we consolodate the total differences.
+                        difArray.reduce((a, b) => a + b, 0);
+                        console.log(difArray)
                     }
-                    let racerQuestionDifference = rAnswers - newRAnswers;
-                    let difArray = [];
-                    Math.abs(racerQuestionDifference).push(diffArray);
-                    difArray.reduce((a, b) => a + b, 0);
-                    console.log(difArray)
-                }
+                    //then put the lowest difference into the differences Array and that rider into the favRider.
                 compareAnswers().val();
                 let differences = [51];
                 let favRider = ["rider"]
+                    //go through and play king of the hill...whoever's number is smaller, they get to stay in the array.
                 if (compareAnswers().val() < differences[0]) {
                     differences[0].splice(0, compareAnswers().val())
                     console.log(rider[j])
@@ -65,6 +72,7 @@ function collectAnswers() {
 
         }
         compareRiders();
+        //add the new rider to the other riders' for next time.
         newRider.push(allRidersArray)
     };
 
