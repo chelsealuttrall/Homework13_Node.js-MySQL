@@ -1,0 +1,24 @@
+{
+  "name": "homework13_node.js-mysql",
+  "version": "1.0.0",
+  "description": "**This application includes a survey that helps serious mountain bikers find their perfect riding buddy.**",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chelsealuttrall/Homework13_Node.js-MySQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chelsealuttrall/Homework13_Node.js-MySQL/issues"
+  },
+  "homepage": "https://github.com/chelsealuttrall/Homework13_Node.js-MySQL#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
