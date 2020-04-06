@@ -24,143 +24,86 @@
         <div>
             <h3>1. The best wheel size is 29er. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q1" name="points" min="1" max="5">
         </div>
         <div>
             <h3>2. Never 26.</h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q2" name="points" min="1" max="5">
         </div>
         <div>
             <h3>3. Only Tubeless. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q3" name="points" min="1" max="5">
         </div>
         <div>
             <h3>4. Full Suspension is the most fun. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q4" name="points" min="1" max="5">
         </div>
         <div>
             <h3>5. Gotta earn the downs. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q5" name="points" min="1" max="5">
         </div>
         <div>
             <h3>6. Stopping mid-ride is unacceptable. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q6" name="points" min="1" max="5">
         </div>
         <div>
             <h3>7. If you're not first you're last. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q7" name="points" min="1" max="5">
         </div>
         <div>
             <h3>8. The best rides are techy. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q8" name="points" min="1" max="5">
         </div>
         <div>
             <h3>9. Baby heads are worth it if the descent is good. </h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q9" name="points" min="1" max="5">
         </div>
         <div>
             <h3>10. Slacker is better.</h3>
             <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="points" name="points" min="1" max="5">
+            <input type="range" id="q10" name="points" min="1" max="5">
         </div>
         <hr>
         <div>
             <label><h3>Submit Your Answers to the Riding-Mojo-Assessor</h3></label>
-            <button id="submit" type="submit"></button>
+            <button id="submit" type="submit">Find my Riding Buddy</button>
         </div>
-
+        <div id=resultsBox>
+            <h2 id="matchName"></h2>
+            <h3 id=results></h3>
+        </div>
 
     </div>
 
     <script>
-        // event handler for submit button
+        $("#submit").on("click", function() {
 
-        $("#submit").click(function() {
-            // make the call to the POST api
-            $.post("../data/friends", function(friend, status) {
-                // .then(function(friend){
-                friend = req.body
-                console.log(friend, status);
-                // take the name and image from the friend data and display on page
+            // Create an object for the user's data
+            var userData = {
+                    name: $("#name").val(),
+                    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+                }
+                // Grab the URL of the website
+            var currentURL = window.location.origin;
+            // AJAX post the data to the friends API. 
+            $.post(currentURL + "/api/friends", userData, function(data) {
+                console.log(data);
 
-            });
+                // Grab the result from the AJAX post so that the best match's name is displayed.
+                $("#matchName").text(data.name);
+                // Show the the best match 
+                $("#results").text(score);
+            }):
         });
     </script>
 </body>
 
 </html>
-
-
-
-<!-- <script type="text/javascript">
-    // Chosen CSS
-    var config = {
-      '.chosen-select'           : {},
-      '.chosen-select-deselect'  : {allow_single_deselect:true},
-      '.chosen-select-no-single' : {disable_search_threshold:10},
-      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-      '.chosen-select-width'     : {width:"95%"}
-    }
-    for (var selector in config) {
-      $(selector).chosen(config[selector]);
-    }
-    // Capture the form inputs 
-    $("#submit").on("click", function(){
-        // Form validation
-        function validateForm() {
-          var isValid = true;
-          $('.form-control').each(function() {
-            if ( $(this).val() === '' )
-                isValid = false;
-          });
-          $('.chosen-select').each(function() {
-            if( $(this).val() === "")
-                isValid = false
-          })
-          return isValid;
-        }
-        // If all required fields are filled
-        if (validateForm() == true)
-        {
-            // Create an object for the user's data
-            var userData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
-            }
-            // Grab the URL of the website
-            var currentURL = window.location.origin;
-            // AJAX post the data to the friends API. 
-            $.post(currentURL + "/api/friends", userData, function(data){
-                console.log(data);
-
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                $("#matchName").text(data.name);
-                $('#matchImg').attr("src", data.photo);
-                // Show the modal with the best match 
-                $("#resultsModal").modal('show');
-                         
-            });
-
-            $('#resultsModal').on('hidden.bs.modal', function (e) {
-                // do something...
-                // similar behavior as an HTTP redirect
-                window.location.replace("/");  
-            })
-        }
-        else
-        {
-            alert("Please fill out all fields before submitting!");
-        }
-        
-        return false;
-    });
-  </script> -->
