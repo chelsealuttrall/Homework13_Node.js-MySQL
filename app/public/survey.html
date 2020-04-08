@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Questions</title>
 
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -84,8 +84,9 @@
     </div>
 
     <script>
-        $("#submit").on("click", function() {
-
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+            console.log("button has been pressed");
             // Create an object for the user's data
             var userData = {
                     name: $("#name").val(),
@@ -101,7 +102,7 @@
                 $("#matchName").text(data.name);
                 // Show the the best match 
                 $("#results").text(score);
-            }):
+            })
         });
     </script>
 </body>
