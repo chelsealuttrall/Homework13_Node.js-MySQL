@@ -59,6 +59,7 @@ module.exports = function (app) {
       res.json(data)
       console.log(
         "Your riding mojo score most closely resembles ", data, "'s.");
+      console.log(friends)
     
    
   })
