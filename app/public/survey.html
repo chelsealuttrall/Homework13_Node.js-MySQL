@@ -6,105 +6,142 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Survey Questions</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-</head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div id="header" class=""></div>
     <div>
-        <div>
-            <h3>Rider's Name</h3>
-            <input id="name"></div>
-        <div>
-            <h3>1. The best wheel size is 29er. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q1" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>2. Never 26.</h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q2" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>3. Only Tubeless. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q3" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>4. Full Suspension is the most fun. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q4" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>5. Gotta earn the downs. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q5" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>6. Stopping mid-ride is unacceptable. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q6" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>7. If you're not first you're last. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q7" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>8. The best rides are techy. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q8" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>9. Baby heads are worth it if the descent is good. </h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q9" name="points" min="1" max="5">
-        </div>
-        <div>
-            <h3>10. Slacker is better.</h3>
-            <h6><label for="points">1=Totally Disagree -> 5=Totally Agree</label></h6>
-            <input type="range" id="q10" name="points" min="1" max="5">
-        </div>
-        <hr>
-        <div>
-            <label><h3>Submit Your Answers to the Riding-Mojo-Assessor</h3></label>
-            <button id="submit" type="submit">Find my Riding Buddy</button>
-        </div>
-        <div id=resultsBox>
-            <h2 id="matchName"></h2>
-            <h3 id=results></h3>
-        </div>
+      <div>
+        <h3>Rider's Name</h3>
+        <input id="name" />
+      </div>
 
+      <div>
+        <h3>1. The best wheel size is 29er.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q1" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>2. Never 26.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q2" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>3. Only Tubeless.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q3" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>4. Full Suspension is the most fun.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q4" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>5. Gotta earn the downs.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q5" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>6. Stopping mid-ride is unacceptable.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q6" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>7. If you're not first you're last.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q7" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>8. The best rides are techy.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q8" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>9. Baby heads are worth it if the descent is good.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q9" name="points" min="1" max="5" />
+      </div>
+      <div>
+        <h3>10. Slacker is better.</h3>
+        <h6>
+          <label for="points">1=Totally Disagree -> 5=Totally Agree</label>
+        </h6>
+        <input type="range" id="q10" name="points" min="1" max="5" />
+      </div>
+      <hr />
+      <div>
+        <label><h3>Submit Your Answers to the Riding-Mojo-Assessor</h3></label>
+        <button id="submit" type="submit">Find my Riding Buddy</button>
+      </div>
+      <div id="resultsBox">
+        <h2 id="matchName"></h2>
+        <h3 id="results"></h3>
+      </div>
     </div>
 
-    <script>
-        $("#submit").on("click", function(event) {
-            event.preventDefault();
-            console.log("button has been pressed");
-            // Create an object for the user's data
-            var userData = {
-                    name: $("#name").val(),
-                    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
-                }
-                // Grab the URL of the website
-            var currentURL = window.location.origin;
-            // AJAX post the data to the friends API. 
-            $.post(currentURL + "/api/friends", userData, function(data) {
-                console.log(data);
+    <script type="text/javascript">
+      $("#submit").on("click", function (event) {
+        event.preventDefault();
+        console.log("button has been pressed");
+        // Create an object for the user's data
+        var userData = {
+          name: $("#name").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val(),
+          ],
+        };
+        // $.get("/api/apiRoutes" + userData, function (match) {
+        //   console.log(match);
 
-                // Grab the result from the AJAX post so that the best match's name is displayed.
-                $("#matchName").text(data.name);
-                // Show the the best match 
-                $("#results").text(score);
-            })
+        // Grab the URL of the website
+        var currentURL = window.location.origin;
+        // AJAX post the data to the friends API.
+        $.post(currentURL + "/api/friends", userData, function (data) {
+          console.log(data);
+
+          // Grab the result from the AJAX post so that the best match's name is displayed.
+          $("#matchName").text(data.bestFriend.text());
+          // Show the the best match
+          $("#results").text(data.bestScore.val());
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
