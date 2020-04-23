@@ -9,59 +9,48 @@ module.exports = function (app) {
   app.get("/api/friends", function (req, res) {
     res.json(friends);
   });
-  app.post("/api/friends", function(req, res) {
+  app.post("/api/friends", function (req, res) {
     userData = req.body;
-    let newRider=userData;
-  
-  console.log("all da friends:", friends);
-  // Displays all characters
-      
+    let newRider = userData;
+
+    console.log("all da friends:", friends);
+    // Displays all characters
+
     console.log("NewRider:", newRider);
     let bestScore = 51;
     let bestFriend = "";
 
     // Convert each user 's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`). *
-    function compareRiders(friends, newRider) {
-      for (let j = 0; j < friends; j++) {
-        let friend = friends[j];
-        console.log(friend);
-        let compareAnswers = function () {
-          let diffArray = [];
-          for (let q = 0; q < friend.scores.length; q++) {
-            let rAnswer = friend.scores[q];
-            let newRAnswer = newRider.scores[q];
-            rAnswer, newRAnswer;
-            let racerQuestionDifference = rAnswers - newRAnswers;
-            //subtract the differences between the answers.
-            //push that absolute number to the diffArray.
-            Math.abs(racerQuestionDifference).push(diffArray);
-            q++;
-          }
-          //then we consolodate the total differences.
-          diffArray.reduce((a, b) => a + b, 0);
-          console.log(diffArray);
-          let comparisonScore = diffArray;
-          if (comparisonScore < bestScore) {
-            bestFriend = friend[j].name;
-            friend[j].push(diffArray.val());
-          }
-        };
-        friend = friend[j + 1];
-        diffArray = [];
-        compareAnswers();
-      }
+    for (let j = 0; j < friends; j++) {
+      let friend = friends[j];
+      console.log(friend);
+      friend = friend[j + 1];
+      diffArray = [];
+      let diffArray = [];
+        for (let q = 0; q < friend.scores.length; q++) {
+          let rAnswer = friend.scores[q];
+          let newRAnswer = newRider.scores[q];
+          rAnswer, newRAnswer;
+          let racerQuestionDifference = rAnswers - newRAnswers;
+          //subtract the differences between the answers.
+          //push that absolute number to the diffArray.
+          Math.abs(racerQuestionDifference).push(diffArray);
+          q++;
+        }
+        //then we consolodate the total differences.
+        diffArray.reduce((a, b) => a + b, 0);
+        console.log(diffArray);
+        let comparisonScore = diffArray;
+        if (comparisonScore < bestScore) {
+          bestFriend = friend[j].name;
+          friend[j].push(diffArray.val());
+        }
     }
-    compareRiders();
-    
-      
-      let data = { bestFriend: bestFriend, bestScore: bestScore };
-      friends.push(newRider);
-      res.json(data)
-      console.log(
-        "Your riding mojo score most closely resembles ", data, "'s.");
-      console.log(friends)
-    
-   
-  })
-};
 
+    let data = { bestFriend: bestFriend, bestScore: bestScore };
+    friends.push(newRider);
+    res.json(data);
+    console.log("Your riding mojo score most closely resembles ", data, "'s.");
+    console.log(friends);
+  });
+};
