@@ -113,7 +113,7 @@
         console.log("button has been pressed");
         // Create an object for the user's data
         var userData = {
-          name: $("#name").val(),
+          name: $("#name").val().trim(),
           scores: [
             $("#q1").val(),
             $("#q2").val(),
@@ -137,9 +137,9 @@
           console.log(data);
 
           // Grab the result from the AJAX post so that the best match's name is displayed.
-          $("#matchName").text(data.bestFriend.text());
+          $("#matchName").text(data.bestFriend);
           // Show the the best match
-          $("#results").text(data.bestScore.val());
+          $("#results").text(data.bestScore);
         });
       });
     </script>

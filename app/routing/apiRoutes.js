@@ -37,7 +37,7 @@ module.exports = function (app) {
           Math.abs(racerQuestionDifference).push(diffArray);
           q++;
         }
-        //then we consolodate the total differences.
+        //then we consolidate the total differences.
         diffArray.reduce((a, b) => a + b, 0);
         console.log(diffArray);
         let comparisonScore = diffArray;
