@@ -127,19 +127,17 @@
             $("#q10").val(),
           ],
         };
-        // $.get("/api/apiRoutes" + userData, function (match) {
-        //   console.log(match);
 
         // Grab the URL of the website
         var currentURL = window.location.origin;
         // AJAX post the data to the friends API.
         $.post(currentURL + "/api/friends", userData, function (data) {
-          console.log(data);
-
+          console.log("data", data);
           // Grab the result from the AJAX post so that the best match's name is displayed.
-          $("#matchName").text(data.bestFriend);
+          $("#matchName").text("Your riding mojo most closely resembles " + data +"'s");
           // Show the the best match
-          $("#results").text(data.bestScore);
+          //("#results").text("You match riding styles at " + +"%");
+          
         });
       });
     </script>
