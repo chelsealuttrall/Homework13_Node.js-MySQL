@@ -17,8 +17,8 @@ module.exports = function (app) {
       newRider.scores[i] = parseInt(newRider.scores[i]);
     }
 
-    let diffArray = [50];
-    let riderBud = {};
+    let diffArray = 50;
+    let riderBud;
     console.log("diffArray", diffArray, "riderBud", riderBud);
     for (let i = 0; i < friends.length; i++) {
       let compatibleRider = friends[i];
@@ -27,13 +27,13 @@ module.exports = function (app) {
       for (let j = 0; j < compatibleRider.scores.length; j++) {
         let thisDiff = Math.abs(compatibleRider.scores[j] - newRider.scores[j]);
         totalDiff += thisDiff;
-        console.log("totalDiff += thisDiff", (totalDiff += thisDiff));
-        riderIndex = compatibleRider;
+        console.log("totalDiff += thisDiff", (totalDiff));
+        
       }
       console.log("diffArray", diffArray, "riderBud", riderBud);
       if (totalDiff < diffArray) {
-        diffArray = [totalDiff];
-        riderBud = riderIndex;
+        diffArray = totalDiff;
+        riderBud = compatibleRider;
       }
     }
 
